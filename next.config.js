@@ -1,10 +1,11 @@
+const path = require('path')
 const withPlugins = require("next-compose-plugins");
 const withCSS = require("@zeit/next-css");
-const withSass = require("@zeit/next-sass");
+// const withSass = require("@zeit/next-sass");
 
 const plugins = [
-  [withCSS, {}],
-  [withSass, {}],
+  // [withCSS, {}],
+  // [withSass, {}],
 ];
 
 const nextConfiguration = {
@@ -15,6 +16,9 @@ const nextConfiguration = {
       use: "raw-loader",
     });
     return config;
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
   },
   //   exportPathMap: function () {
   //     return {
